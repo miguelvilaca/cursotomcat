@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+
+  
+  <ResourceLink name="jdbc/ContatosLocal"
+      global="jdbc/ContatosGlobal"
+      type="javax.sql.DataSource"
+  />
+  
+
+</Context>
+

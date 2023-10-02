@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+        http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+    <description>
+      Exemplo de autenticação e controle de acesso padrão J2EE
+    </description>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <jsp-config>
+        <jsp-property-group>
+           <url-pattern>/*</url-pattern>
+           <page-encoding>UTF-8</page-encoding>
+        </jsp-property-group>
+    </jsp-config>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Paginas do Usuario</web-resource-name>
+            <url-pattern>/usuarios/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>usuario</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Paginas do Administrador</web-resource-name>
+            <url-pattern>/admin/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>administrador</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-role>
+        <role-name>usuario</role-name>
+    </security-role>
+    <security-role>
+        <role-name>administrador</role-name>
+    </security-role>
+
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>Exemplo de Segurança J2EE</realm-name>
+    </login-config>
+
+    <error-page>
+        <error-code>401</error-code>
+        <error-code>403</error-code>
+        <location>/erro403.jsp</location>
+    </error-page>
+        
+</web-app>
