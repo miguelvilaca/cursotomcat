@@ -67,3 +67,19 @@ sudo systemctl restart apache2;
 sudo systemctl restart tomcat9
 
 #teste a pagina: http://localhost/examples/
+
+
+# Adicionando JK_status
+sudo gedit /etc/apache2/workers.properties
+
+# modificando e adicionando as linhas abaixo
+worker.list=worker1,jk-status
+#define jk-status worker type
+worker.jk-status.type=status
+
+sudo gedit /etc/apache2/sites-enabled/000-default.conf 
+# modificando e adicionando as linhas abaixo
+JkMount /* worker1
+JkMount /jk-status jk-status
+
+#teste a pagina: http://localhost/jk-status/
