@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+
+  <ResourceLink name="jdbc/ContatosLocal"
+      global="jdbc/ContatosGlobal"
+      type="javax.sql.DataSource"
+  />
+
+  <Realm className="org.apache.catalina.realm.DataSourceRealm"
+     dataSourceName="jdbc/ContatosLocal" localDataSource="true"
+     digest="MD5"
+     userTable="usuarios" userNameCol="login" userCredCol="senha"
+     userRoleTable="grupos" roleNameCol="role"
+  />
+  
+</Context>
+

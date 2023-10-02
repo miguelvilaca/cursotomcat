@@ -1,0 +1,49 @@
+dn: dc=4linux,dc=priv
+objectclass: top
+objectclass: dcObject
+objectclass: organization
+dc: 4linux
+o: 4linux
+
+dn: ou=People,dc=4linux,dc=priv
+objectclass: top
+objectclass: organizationalUnit
+ou: People
+
+dn: uid=fulano,ou=People,dc=4linux,dc=priv
+objectclass: top
+objectclass: uidObject
+objectclass: person
+uid: fulano
+cn: Fulano
+sn: de Tal
+userPassword: {MD5}RchIXdq2e54IjRQuF+rLcg==
+
+dn: uid=admin,ou=People,dc=4linux,dc=priv
+objectclass: top
+objectclass: uidObject
+objectclass: person
+uid: admin
+cn: Admin
+sn: Root
+userPassword: {MD5}6NlaUfOvSjsTS/a7aAohOg==
+
+dn: ou=groups,dc=4linux,dc=priv
+objectclass: top
+objectclass: organizationalUnit
+ou: Roles
+
+dn: cn=usuario,ou=groups,dc=4linux,dc=priv
+objectclass: top
+objectclass: groupOfNames
+cn: usuario
+member: uid=fulano,ou=People,dc=4linux,dc=priv
+description: Usuarios do exemplo
+
+dn: cn=administrador,ou=groups,dc=4linux,dc=priv
+objectclass: top
+objectclass: groupOfNames
+cn: administrador
+member: uid=admin,ou=People,dc=4linux,dc=priv
+description: Administradores do exemplo
+

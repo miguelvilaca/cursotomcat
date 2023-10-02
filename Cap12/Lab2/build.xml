@@ -1,0 +1,56 @@
+<project name="Cap12_Lab2" default="tudo">
+
+    <target name="tudo" depends="limpa,compila,empacota,instala" />
+    
+    <target name="variaveis">
+        <property name="tomcat" value="/usr/share/tomcat9" />
+        <property name="servlets" value="${tomcat}/lib/servlet-api.jar" />
+        <property name="war" value="hoje-valv.war" />
+        <property name="username" value="tomcat" />
+        <property name="password" value="tomcat" />
+        <property name="url" value="http://127.0.0.1:8080/manager/text" />
+    </target>
+    
+    <target name="limpa">
+        <delete>
+            <fileset dir="." includes="WEB-INF/classes/**" />
+            <fileset dir="." includes="dist/**" />
+        </delete>
+    </target>
+    
+    <target name="compila" depends="variaveis">
+        <javac srcdir="src" destdir="WEB-INF/classes"
+            classpath="${servlets}"/>
+    </target>
+    
+    <target name="empacota" depends="variaveis">
+        <jar destfile="dist/${war}">
+            <fileset dir="html" includes="**" />
+            <fileset dir="." includes="WEB-INF/**" />
+            <fileset dir="." includes="META-INF/**" />
+        </jar>
+    </target>
+    
+    <target name="instala1" depends="variaveis">
+        <copy file="dist/${war}" todir="${tomcat}/webapps" />
+    </target>
+    
+    <target name="instala" depends="variaveis">
+        <deploy url="${url}"  username="${username}" password="${password}" 
+        path="/${war}" war="dist/${war}"/>
+    </target>
+
+    <target name="desinstala" depends="variaveis">
+        <delete file="${tomcat}/webapps/${war}" />
+    </target>
+    
+    <taskdef name="deploy" 
+        classpath="/usr/share/java/tomcat9-catalina-ant-9.0.58.jar;/usr/share/java/tomcat9-catalina-9.0.58.jar"
+        classname="org.apache.catalina.ant.DeployTask">
+    </taskdef>
+
+    <taskdef name="undeploy"  
+        classpath="/usr/share/java/tomcat9-catalina-ant-9.0.58.jar;/usr/share/java/tomcat9-catalina-9.0.58.jar" 
+        classname="org.apache.catalina.ant.UndeployTask">
+    </taskdef>
+</project>
