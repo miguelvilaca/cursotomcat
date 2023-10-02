@@ -15,9 +15,9 @@ java -version;
 sudo gedit /etc/tomcat9/tomcat-users.xml;
 
 # Adicione
-<tomcat-users . . .>
-    <user username="tomcat" password="tomcat" roles="manager-gui,admin-gui,manager-script"/>
-</tomcat-users>
+# <tomcat-users . . .>
+#    <user username="tomcat" password="tomcat" roles="manager-gui,admin-gui,manager-script"/>
+# </tomcat-users>
 
 sudo systemctl restart tomcat9;
 
