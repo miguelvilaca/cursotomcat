@@ -1,6 +1,9 @@
 # cursotomcat
 # passo a passo cluster
 
+sudo apt install git;
+git clone https://github.com/miguelvilaca/cursotomcat.git;
+
 sudo systemctl stop ufw;
 sudo systemctl status ufw;
 
