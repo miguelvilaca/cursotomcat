@@ -1,5 +1,5 @@
 # cursotomcat
-# passo a passo cluster
+# passo a passo Apache2 + tomcat9
 
 sudo apt install git;
 git clone https://github.com/miguelvilaca/cursotomcat.git;
