@@ -45,13 +45,13 @@
         <delete file="${tomcat}/webapps/${war}" />
     </target>
     
-    <taskdef name="deploy" 
-        classpath="/usr/share/java/tomcat9-catalina-ant-9.0.58.jar;/usr/share/java/tomcat9-catalina-9.0.58.jar"
+     <taskdef name="deploy" 
+        classpath="/usr/share/java/tomcat9-catalina-ant.jar;/usr/share/java/tomcat9-catalina.jar"
         classname="org.apache.catalina.ant.DeployTask">
     </taskdef>
 
     <taskdef name="undeploy"  
-        classpath="/usr/share/java/tomcat9-catalina-ant-9.0.58.jar;/usr/share/java/tomcat9-catalina-9.0.58.jar" 
+        classpath="/usr/share/java/tomcat9-catalina-ant.jar;/usr/share/java/tomcat9-catalina.jar" 
         classname="org.apache.catalina.ant.UndeployTask">
     </taskdef>
     
