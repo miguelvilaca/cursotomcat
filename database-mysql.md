@@ -1,3 +1,10 @@
+# download
+https://ftp.iij.ad.jp/pub/db/mysql/Downloads/Connector-J/
+
+https://sinalbr.dl.sourceforge.net/project/squirrel-sql/1-stable/4.8.0/squirrel-sql-4.8.0-standard.jar?viasf=1
+
+https://ftp.iij.ad.jp/pub/db/mysql/Downloads/Connector-J/mysql-connector-java-5.0.6.zip
+
 # Criando a estrutura de dados para teste.
 
 sudo apt install mysql-server;
